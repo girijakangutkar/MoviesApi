@@ -10,10 +10,12 @@ function MovieList({ searchName, setSearchName }) {
     if (searchName) fetchMovie(searchName);
   }, [searchName]);
 
+  const ApiKey = import.meta.env.VITE_API_KEY;
+
   async function fetchMovie(name) {
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${name}&apikey=48c35c90`
+        `http://www.omdbapi.com/?s=${name}&apikey=${ApiKey}`
       );
       const data = await response.json();
 

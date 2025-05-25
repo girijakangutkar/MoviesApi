@@ -12,10 +12,12 @@ function MovieDetails() {
     if (title) fetchMovie(title);
   }, [title]);
 
+  const ApiKey = import.meta.env.VITE_API_KEY;
+
   async function fetchMovie(title) {
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?t=${title}&apikey=48c35c90`
+        `http://www.omdbapi.com/?t=${title}&apikey=${ApiKey}`
       );
       const data = await response.json();
       setMovie(data);
